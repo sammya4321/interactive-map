@@ -63,6 +63,11 @@ clicked opens a sidebar with some additional content.
 
 That’s it.
 
+## Example
+
+The `example.html` file loads an image and the script to show how it looks,
+[view it here](https://sammya4321.github.io/interactive-map/example).
+
 ## Still TODO
 
 1. Add animation on hover to increase size of icon
