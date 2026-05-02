@@ -30,8 +30,10 @@ clicked opens a sidebar with some additional content.
         text: "Description for Location A.",
         
         /* A link in the side panel and the text it should display as */
-        link: "https://example.com",
-        linkLabel: "Learn More",
+        links: [
+            { url: "https://example.com", label: "Learn More" },
+            { url: "https://another.com", label: "Another Link" }
+        ],
         
         /* url of the image to display in the side panel (upload file to 
          * squarespace and find the url) */
