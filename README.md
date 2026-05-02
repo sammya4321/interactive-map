@@ -37,9 +37,17 @@ clicked opens a sidebar with some additional content.
          * squarespace and find the url) */
         image: "",
         
+        /* the icon size. Use:
+         *   - a number > 1 for pixels,
+         *   - a ratio between 0 and 1 for relative size to the rendered map image,
+         *   - or a string like '6%' for a percentage of the image size.
+         */
+        width: 0.06,
+        height: 0.06,
+        
         /* The svg code to display as an icon on the map */
         svg: `
-            <svg viewBox="0 0 24 24" width="32" height="32">
+            <svg viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="8" fill="#e63946"/>
             </svg>
         `
