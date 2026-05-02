@@ -183,7 +183,7 @@
         {
           x: 87.1, y: 66.5,
           width: 0.1,
-          height: 0.1,
+          height: 0.15,
           title: "Sailmaking",
           text: `A traditional maritime craft that involves designing and constructing the sails that power sailing vessels.`,
           status: "ENDANGERED",
@@ -363,37 +363,54 @@
       svg.removeAttribute('height');
     }
 
+    let activeHover = null;
     button.addEventListener('click', () => openPanel(point));
     button.addEventListener('mouseenter', () => {
       const lens = createLens();
-
       const img = overlay.parentNode.querySelector('img');
       const rect = img.getBoundingClientRect();
 
       const zoom = 2;
 
-      const xPx = (point.x / 100) * rect.width;
-      const yPx = (point.y / 100) * rect.height;
+      const colour = getStatusColour(point);
 
-      // Position lens on screen
-      lens.style.left = rect.left + xPx + 'px';
-      lens.style.top = rect.top + yPx + 'px';
-
-      // Set zoomed background
       lens.style.backgroundImage = `url(${img.src})`;
       lens.style.backgroundSize = `${rect.width * zoom}px ${rect.height * zoom}px`;
-      lens.style.backgroundPosition =
-        `-${xPx * zoom - 80}px -${yPx * zoom - 80}px`;
-
-      // Apply status colour border
-      const colour = getStatusColour(point);
       lens.style.border = `3px solid ${colour}`;
 
-      // Show with animation
       lens.style.opacity = '1';
       lens.style.transform = 'translate(-50%, -50%) scale(1)';
+
+      activeHover = { img, rect, zoom };
+    });
+    button.addEventListener('mousemove', (e) => {
+      if (!activeHover) return;
+
+      const { rect, zoom } = activeHover;
+
+      // const x = e.clientX - rect.left;
+      // const y = e.clientY - rect.top;
+      const factor = 1; // 0 = no movement, 1 = full follow
+      const centerX = (point.x / 100) * rect.width;
+      const centerY = (point.y / 100) * rect.height;
+
+      const x = centerX + (e.clientX - rect.left - centerX) * factor;
+      const y = centerY + (e.clientY - rect.top - centerY) * factor;
+
+      // Clamp inside image bounds
+      const clampedX = Math.max(0, Math.min(rect.width, x));
+      const clampedY = Math.max(0, Math.min(rect.height, y));
+
+      // Move lens
+      lensEl.style.left = rect.left + clampedX + 'px';
+      lensEl.style.top = rect.top + clampedY + 'px';
+      // Move zoomed background
+      lensEl.style.backgroundPosition =
+        `-${clampedX * zoom - 80}px -${clampedY * zoom - 80}px`;
     });
     button.addEventListener('mouseleave', () => {
+      activeHover = null;
+
       if (!lensEl) return;
 
       lensEl.style.opacity = '0';
