@@ -478,11 +478,28 @@
       .addEventListener('click', closePanel);
 
     document.body.appendChild(panel);
+
+    // Close panel when clicking outside of it
+    const handleClickOutside = (e) => {
+      if (!panel.contains(e.target)) {
+        closePanel();
+      }
+    };
+    document.addEventListener('click', handleClickOutside, true);
+
+    // Store the handler so we can remove it when closing
+    panel._clickOutsideHandler = handleClickOutside;
   }
 
   function closePanel() {
     const existing = document.querySelector('.map-panel');
-    if (existing) existing.remove();
+    if (existing) {
+      // Remove the click outside handler
+      if (existing._clickOutsideHandler) {
+        document.removeEventListener('click', existing._clickOutsideHandler, true);
+      }
+      existing.remove();
+    }
   }
 
   /* ===============================
