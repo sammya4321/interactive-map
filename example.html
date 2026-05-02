@@ -15,12 +15,27 @@
                 align-items: center;
                 justify-content: center;
             }
+            .interactive-map {
+                width: 80vw;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+            .interactive-map img {
+                max-width: 80vw;
+                max-height: 100vh;
+                width: auto;
+                height: auto;
+                display: block;
+            }
         </style>
     </head>
     <body>
         <!-- Mock what squarespace might do when adding an image block -->
         <div class="interactive-map">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Westcountrymap.png">
+            <img src="assets/map.jpeg" alt="Interactive map image">
         </div>
 
         <!-- load the script -->
