@@ -87,3 +87,24 @@ The `example.html` file loads an image and the script to show how it looks,
 5. Make phone friendly? Instead of side-panel just overlay on whole screen?
 6. try on squarespace
 7. on click of map (not icon) close sidebar
+
+## Configuration
+
+The `MAPS` array contains configuration for each map. Each map object has:
+
+- `selector`: CSS selector for the map container
+- `statusColours`: Object mapping status strings to hex colors (used for hover effects)
+- `points`: Array of point objects
+
+### Point Object
+
+Each point has:
+
+- `x`, `y`: Position as percentage
+- `width`, `height`: Size (relative to image or fixed pixels)
+- `title`: Display title
+- `text`: Description text
+- `status`: Optional status (affects hover color and display)
+- `links`: Array of { url, label } objects
+- `image`: Optional image URL
+- `svg`: SVG markup for shape of the point on the map
