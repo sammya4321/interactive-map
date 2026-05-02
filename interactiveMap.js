@@ -20,8 +20,11 @@
           height: 0.1,
           title: "Bobbin Lace Making",
           text: "Creating delicate, openwork fabric by twisting and crossing threads. <br /> <br />  STATUS: ENDANGERED",
-          link: "https://heritagecrafts.org.uk/craft/lace-making-bobbin-lace/",
-          linkLabel: "Learn more",
+          links: [
+            { url: "https://heritagecrafts.org.uk/craft/lace-making-bobbin-lace/",
+              label: "Learn more"
+            }
+          ],
           image: "",
           svg: `
             <svg viewBox="0 0 50 50" >
@@ -36,8 +39,7 @@
           height: 0.1,
           title: "Natural Leather and Hide Tanning",
           text: "The process of using simple, organic ingredients to convert raw skin into leather.<br /> <br /> STATUS: CRITICALLY ENDANGERED",
-          link: "https://heritagecrafts.org.uk/craft/tanning-oak-bark/",
-          linkLabel: "Learn more",
+          links: [{ url: "https://heritagecrafts.org.uk/craft/tanning-oak-bark/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
@@ -52,8 +54,7 @@
           title: "Devon Stave Basket Making",
           text: `The making of a traditional Devon assembled basket made of wooden splints fixed to a wooden base.<br /> <br /> 
           STATUS: CRITICALLY ENDANGERED`,
-          link: "https://heritagecrafts.org.uk/craft/tanning-oak-bark/",
-          linkLabel: "Learn more",
+          links: [{ url: "https://heritagecrafts.org.uk/craft/tanning-oak-bark/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
@@ -67,8 +68,7 @@
           height: 0.1,
           title: "Withy Pot Making",
           text: "The making of traditional crab / lobster pots from willow, called withy pots.<br /><br /> STATUS: CRITICALLY ENDANGERED",
-          link: "https://heritagecrafts.org.uk/craft/withy-pot-making/",
-          linkLabel: "Learn more",
+          links: [{ url: "https://heritagecrafts.org.uk/craft/withy-pot-making/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
@@ -82,8 +82,7 @@
           height: 0.1,
           title: "Fairground Art",
           text: "Decoration associated with traditional travelling fairgrounds. <br /> <br /> STATUS: ENDANGERED",
-          link: "https://heritagecrafts.org.uk/craft/fairground-art/",
-          linkLabel: "Learn more",
+          links: [{ url: "https://heritagecrafts.org.uk/craft/fairground-art/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
@@ -99,15 +98,14 @@
           text: `The craft of constructing the traditional stone faced earth banks predominantly found within, and characteristic of, Cornwall. 
           <br /><br />
           STATUS: ENDANGERED`,
-          link: "https://heritagecrafts.org.uk/craft/cornish-hedging/",
-          linkLabel: "Lean more",
+          links: [{ url: "https://heritagecrafts.org.uk/craft/cornish-hedging/", label: "Lean more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
             </svg>
           `
         },
-         {
+        {
           x: 34.4, 
           y: 63.1,
           width: 0.1,
@@ -116,15 +114,14 @@
           text: `The growing and processing of flax to produce textiles, rope and everyday household materials. 
           <br /><br />
           STATUS: ENDANGERED`,
-          link: "https://heritagecrafts.org.uk/craft/flax-hemp-and-nettle-bast-fibre-processing/",
-          linkLabel: "Learn more",
+          links: [{ url: "https://heritagecrafts.org.uk/craft/flax-hemp-and-nettle-bast-fibre-processing/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
             </svg>
           `
         },
-         {
+        {
           x: 63.4, 
           y: 68.6,
           width: 0.1,
@@ -133,8 +130,7 @@
           text: `The craft of constructing boats from wood using traditional techniques. 
           <br /><br />
           STATUS: ENDANGERED`,
-          link: "https://heritagecrafts.org.uk/craft/traditional-wooden-boat-building/",
-          linkLabel: "Learn more",
+          links: [{ url: "https://heritagecrafts.org.uk/craft/traditional-wooden-boat-building/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
@@ -150,8 +146,16 @@
           text: `The making of signs by painting and applying metal leaf to the reverse of glass panels. Brilliant cutting is cutting a pattern into flat glass with a rotating stone wheel, the cuts are then smoothed with polishing powders using a felt wheel.
           <br /><br />
           STATUS: ENDANGERED`,
-          link: "https://heritagecrafts.org.uk/craft/brilliant-cutting/",
-          linkLabel: "Learn more",
+          links: [
+            { 
+              url: "https://heritagecrafts.org.uk/craft/brilliant-cutting/", 
+              label: "Learn more about Brilliant Cutting."
+            },
+            { 
+              url: "https://heritagecrafts.org.uk/craft/reverse-glass-sign-painting/",
+              label: "Learn more about Reverse Glass Sign Painting."
+            },
+          ],
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
@@ -167,15 +171,14 @@
           text: `The construction of wooden wheels, often used for coachbuilding.
           <br /><br />
           STATUS: ENDANGERED`,
-          link: "https://heritagecrafts.org.uk/craft/wheelwrighting/",
-          linkLabel: "Learn more",
+          links: [{ url: "https://heritagecrafts.org.uk/craft/wheelwrighting/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
             </svg>
           `
         },
-         {
+        {
           x: 87.1, y: 66.5,
           width: 0.1,
           height: 0.1,
@@ -183,8 +186,7 @@
           text: `A traditional maritime craft that involves designing and constructing the sails that power sailing vessels.
           <br /><br />
           STATUS: ENDANGERED`,
-          link: "https://heritagecrafts.org.uk/craft/sail-making/",
-          linkLabel: "Learn more",
+          links: [{ url: "https://heritagecrafts.org.uk/craft/sail-making/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
@@ -199,8 +201,7 @@
           text: `The weaving of silk ribbons.
           <br /><br />
           STATUS: CRITICALLY ENDANGERED`,
-          link: "https://heritagecrafts.org.uk/craft/silk-ribbon-making/",
-          linkLabel: "Learn more",
+          links: [{ url: "https://heritagecrafts.org.uk/craft/silk-ribbon-making/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
@@ -367,6 +368,13 @@
       overflowY: "auto"
     });
 
+    let linksHtml = '';
+    if (point.links && point.links.length > 0) {
+      point.links.forEach(link => {
+        linksHtml += `<p><a href="${link.url}" target="_blank" rel="noopener" style="font-weight: bold; text-decoration: none;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">${link.label}</a></p>`;
+      });
+    }
+
     panel.innerHTML = `
       <button class="map-panel-close" style="
         position:absolute;
@@ -381,7 +389,7 @@
       <h2 style="margin-top:0;">${point.title}</h2>
       ${point.image ? `<img src="${point.image}" style="max-width:100%; margin-bottom:16px;">` : ""}
       <p>${point.text || ""}</p>
-      ${point.link ? `<p><a href="${point.link}" target="_blank" rel="noopener">${point.linkLabel || "Learn more"}</a></p>` : ""}
+      ${linksHtml}
     `;
 
     panel.querySelector('.map-panel-close')
