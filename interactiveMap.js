@@ -2,14 +2,14 @@
   'use strict';
 
   /* ===============================
-     STATUS COLORS
+     CONFIGURATION
      =============================== */
 
   const MAPS = [
     {
       selector: '.interactive-map', // CSS selector of the image block
       statusColours: {
-        'ENDANGERED': '#ff4d00',
+        'ENDANGERED': '#ff7b00',
         'CRITICALLY ENDANGERED': '#ff0000',
       },
       points: [
@@ -216,22 +216,14 @@
      CORE
      =============================== */
 
+  let lensEl = null;
+
   function initAllMaps() {
     MAPS.forEach(mapConfig => {
       document.querySelectorAll(mapConfig.selector).forEach(container => {
         initMap(container, mapConfig);
       });
     });
-  }
-
-  function getStatusColor(config, status) {
-    const hex = config.statusColours && config.statusColours[status];
-    if (!hex) return 'transparent';
-    // Convert hex to rgba with 0.5 opacity
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-    return `rgba(${r}, ${g}, ${b}, 0.5)`;
   }
 
   function initMap(container, config) {
@@ -304,6 +296,34 @@
     updateOverlayBounds();
   }
 
+  function createLens() {
+    if (lensEl) return lensEl;
+
+    lensEl = document.createElement('div');
+    lensEl.className = 'map-lens';
+
+    Object.assign(lensEl.style, {
+      position: 'fixed',
+      width: '160px',
+      height: '160px',
+      borderRadius: '50%',
+      pointerEvents: 'none',
+      backgroundRepeat: 'no-repeat',
+      transform: 'translate(-50%, -50%) scale(0.9)',
+      opacity: '0',
+      transition: 'transform 0.15s ease, opacity 0.15s ease',
+      zIndex: 99999,
+      boxShadow: '0 8px 20px rgba(0,0,0,0.25)',
+    });
+    document.body.appendChild(lensEl);
+    return lensEl;
+  }
+
+  function getStatusColour(point) {
+    const mapConfig = MAPS[0]; // assuming single map config
+    return mapConfig.statusColours[point.status] || '#000';
+  }
+
   function createPoint(overlay, point, config) {
     const button = document.createElement('button');
     button.type = "button";
@@ -344,33 +364,47 @@
     }
 
     button.addEventListener('click', () => openPanel(point));
+    button.addEventListener('mouseenter', () => {
+      const lens = createLens();
+
+      const img = overlay.parentNode.querySelector('img');
+      const rect = img.getBoundingClientRect();
+
+      const zoom = 2;
+
+      const xPx = (point.x / 100) * rect.width;
+      const yPx = (point.y / 100) * rect.height;
+
+      // Position lens on screen
+      lens.style.left = rect.left + xPx + 'px';
+      lens.style.top = rect.top + yPx + 'px';
+
+      // Set zoomed background
+      lens.style.backgroundImage = `url(${img.src})`;
+      lens.style.backgroundSize = `${rect.width * zoom}px ${rect.height * zoom}px`;
+      lens.style.backgroundPosition =
+        `-${xPx * zoom - 80}px -${yPx * zoom - 80}px`;
+
+      // Apply status colour border
+      const colour = getStatusColour(point);
+      lens.style.border = `3px solid ${colour}`;
+
+      // Show with animation
+      lens.style.opacity = '1';
+      lens.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+    button.addEventListener('mouseleave', () => {
+      if (!lensEl) return;
+
+      lensEl.style.opacity = '0';
+      lensEl.style.transform = 'translate(-50%, -50%) scale(0.9)';
+    });
     button.addEventListener('keydown', e => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         openPanel(point);
       }
     });
-
-    // Hover effect based on status
-    if (point.status) {
-      button.addEventListener('mouseenter', () => {
-        const svg = button.querySelector('svg');
-        if (svg) {
-          const circle = svg.querySelector('circle');
-          if (circle) {
-            circle.setAttribute('fill', getStatusColor(config, point.status));
-          }
-        }
-      });
-      button.addEventListener('mouseleave', () => {
-        const svg = button.querySelector('svg');
-        if (svg) {
-          const circle = svg.querySelector('circle');
-          circle.setAttribute('fill', 'transparent');
-        }
-      });
-    }
-
     overlay.appendChild(button);
   }
 
