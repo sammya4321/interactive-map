@@ -2,16 +2,16 @@
   'use strict';
 
   /* ===============================
-     CONFIGURATION
+     STATUS COLORS
      =============================== */
 
   const MAPS = [
     {
       selector: '.interactive-map', // CSS selector of the image block
-      // point width / height can be either:
-      // - a fixed number > 1 for pixels
-      // - a ratio between 0 and 1 to size relative to the rendered image width/height
-      // - a percentage string like '6%' to size relative to the rendered image width/height
+      statusColours: {
+        'ENDANGERED': '#ff4d00',
+        'CRITICALLY ENDANGERED': '#ff0000',
+      },
       points: [
         {
           x: 56,
@@ -19,7 +19,8 @@
           width: 0.1,
           height: 0.1,
           title: "Bobbin Lace Making",
-          text: "Creating delicate, openwork fabric by twisting and crossing threads. <br /> <br />  STATUS: ENDANGERED",
+          text: "Creating delicate, openwork fabric by twisting and crossing threads.",
+          status: "ENDANGERED",
           links: [
             { url: "https://heritagecrafts.org.uk/craft/lace-making-bobbin-lace/",
               label: "Learn more"
@@ -28,7 +29,7 @@
           image: "",
           svg: `
             <svg viewBox="0 0 50 50" >
-              <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
+              <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
@@ -38,11 +39,12 @@
           width: 0.1,
           height: 0.1,
           title: "Natural Leather and Hide Tanning",
-          text: "The process of using simple, organic ingredients to convert raw skin into leather.<br /> <br /> STATUS: CRITICALLY ENDANGERED",
+          text: "The process of using simple, organic ingredients to convert raw skin into leather.",
+          status: "CRITICALLY ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/tanning-oak-bark/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
-              <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
+              <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
@@ -52,12 +54,12 @@
           width: 0.1,
           height: 0.1,
           title: "Devon Stave Basket Making",
-          text: `The making of a traditional Devon assembled basket made of wooden splints fixed to a wooden base.<br /> <br /> 
-          STATUS: CRITICALLY ENDANGERED`,
+          text: `The making of a traditional Devon assembled basket made of wooden splints fixed to a wooden base.`,
+          status: "CRITICALLY ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/tanning-oak-bark/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
-              <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
+              <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
@@ -67,11 +69,12 @@
           width: 0.1,
           height: 0.1,
           title: "Withy Pot Making",
-          text: "The making of traditional crab / lobster pots from willow, called withy pots.<br /><br /> STATUS: CRITICALLY ENDANGERED",
+          text: "The making of traditional crab / lobster pots from willow, called withy pots.",
+          status: "CRITICALLY ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/withy-pot-making/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
-              <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
+              <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
@@ -81,11 +84,12 @@
           width: 0.1,
           height: 0.1,
           title: "Fairground Art",
-          text: "Decoration associated with traditional travelling fairgrounds. <br /> <br /> STATUS: ENDANGERED",
+          text: "Decoration associated with traditional travelling fairgrounds.",
+          status: "ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/fairground-art/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
-              <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
+              <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
@@ -96,12 +100,12 @@
           height: 0.1,
           title: "Cornish Hedging",
           text: `The craft of constructing the traditional stone faced earth banks predominantly found within, and characteristic of, Cornwall. 
-          <br /><br />
-          STATUS: ENDANGERED`,
+          `,
+          status: "ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/cornish-hedging/", label: "Lean more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
-              <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
+              <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
@@ -112,12 +116,12 @@
           height: 0.1,
           title: "Flax Processing",
           text: `The growing and processing of flax to produce textiles, rope and everyday household materials. 
-          <br /><br />
-          STATUS: ENDANGERED`,
+          `,
+          status: "ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/flax-hemp-and-nettle-bast-fibre-processing/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
-              <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
+              <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
@@ -128,12 +132,12 @@
           height: 0.1,
           title: "Wooden Boatbuilding",
           text: `The craft of constructing boats from wood using traditional techniques. 
-          <br /><br />
-          STATUS: ENDANGERED`,
+          `,
+          status: "ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/traditional-wooden-boat-building/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
-              <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
+              <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
@@ -143,9 +147,8 @@
           width: 0.1,
           height: 0.1,
           title: "Reverse Glass Sign Painting and Brilliant Glass Cutting",
-          text: `The making of signs by painting and applying metal leaf to the reverse of glass panels. Brilliant cutting is cutting a pattern into flat glass with a rotating stone wheel, the cuts are then smoothed with polishing powders using a felt wheel.
-          <br /><br />
-          STATUS: ENDANGERED`,
+          text: `The making of signs by painting and applying metal leaf to the reverse of glass panels. Brilliant cutting is cutting a pattern into flat glass with a rotating stone wheel, the cuts are then smoothed with polishing powders using a felt wheel.`,
+          status: "ENDANGERED",
           links: [
             { 
               url: "https://heritagecrafts.org.uk/craft/brilliant-cutting/", 
@@ -158,7 +161,7 @@
           ],
           svg: `
             <svg viewBox="0 0 50 50" >
-              <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
+              <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
@@ -168,13 +171,12 @@
           width: 0.1,
           height: 0.1,
           title: "Wheelwrighting",
-          text: `The construction of wooden wheels, often used for coachbuilding.
-          <br /><br />
-          STATUS: ENDANGERED`,
+          text: `The construction of wooden wheels, often used for coachbuilding.`,
+          status: "ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/wheelwrighting/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
-              <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
+              <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
@@ -183,13 +185,12 @@
           width: 0.1,
           height: 0.1,
           title: "Sailmaking",
-          text: `A traditional maritime craft that involves designing and constructing the sails that power sailing vessels.
-          <br /><br />
-          STATUS: ENDANGERED`,
+          text: `A traditional maritime craft that involves designing and constructing the sails that power sailing vessels.`,
+          status: "ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/sail-making/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
-              <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
+              <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
@@ -198,13 +199,12 @@
           width: 0.1,
           height: 0.1,
           title: "Silk Ribbon Making",
-          text: `The weaving of silk ribbons.
-          <br /><br />
-          STATUS: CRITICALLY ENDANGERED`,
+          text: `The weaving of silk ribbons.`,
+          status: "CRITICALLY ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/silk-ribbon-making/", label: "Learn more" }],
           svg: `
             <svg viewBox="0 0 50 50" >
-              <circle cx="25" cy="25" r="25" fill="rgba(255,0,0,0.5)"/>
+              <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
@@ -222,6 +222,16 @@
         initMap(container, mapConfig);
       });
     });
+  }
+
+  function getStatusColor(config, status) {
+    const hex = config.statusColours && config.statusColours[status];
+    if (!hex) return 'transparent';
+    // Convert hex to rgba with 0.5 opacity
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, 0.5)`;
   }
 
   function initMap(container, config) {
@@ -288,13 +298,13 @@
     container.appendChild(overlay);
 
     config.points.forEach(point => {
-      createPoint(overlay, point);
+      createPoint(overlay, point, config);
     });
 
     updateOverlayBounds();
   }
 
-  function createPoint(overlay, point) {
+  function createPoint(overlay, point, config) {
     const button = document.createElement('button');
     button.type = "button";
     button.className = "map-point";
@@ -340,6 +350,26 @@
         openPanel(point);
       }
     });
+
+    // Hover effect based on status
+    if (point.status) {
+      button.addEventListener('mouseenter', () => {
+        const svg = button.querySelector('svg');
+        if (svg) {
+          const circle = svg.querySelector('circle');
+          if (circle) {
+            circle.setAttribute('fill', getStatusColor(config, point.status));
+          }
+        }
+      });
+      button.addEventListener('mouseleave', () => {
+        const svg = button.querySelector('svg');
+        if (svg) {
+          const circle = svg.querySelector('circle');
+          circle.setAttribute('fill', 'transparent');
+        }
+      });
+    }
 
     overlay.appendChild(button);
   }
@@ -389,6 +419,7 @@
       <h2 style="margin-top:0;">${point.title}</h2>
       ${point.image ? `<img src="${point.image}" style="max-width:100%; margin-bottom:16px;">` : ""}
       <p>${point.text || ""}</p>
+      ${point.status ? `<p><strong>Status:</strong> ${point.status}</p>` : ""}
       ${linksHtml}
     `;
 
