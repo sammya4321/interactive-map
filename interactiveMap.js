@@ -460,12 +460,20 @@
     const panel = document.createElement('div');
     panel.className = "map-panel";
 
+    // Determine an effective width for mobile Safari and similar browsers
+    const viewportWidth = window.visualViewport?.width || window.innerWidth || document.documentElement.clientWidth || screen.width;
+    const deviceWidth = screen.width || viewportWidth;
+    const effectiveWidth = Math.min(viewportWidth, deviceWidth);
+    const isSmallScreen = effectiveWidth <= 768 || window.matchMedia('(max-device-width: 768px)').matches;
+
     Object.assign(panel.style, {
       position: "fixed",
       top: 0,
-      right: 0,
-      width: "350px",
-      maxWidth: "90%",
+      left: isSmallScreen ? 0 : "auto",
+      right: isSmallScreen ? 0 : 0,
+      width: isSmallScreen ? "100%" : "350px",
+      maxWidth: isSmallScreen ? "100%" : "90%",
+      minWidth: isSmallScreen ? "0" : "auto",
       height: "100%",
       background: "#ffffff",
       boxShadow: "-2px 0 10px rgba(0,0,0,0.2)",
