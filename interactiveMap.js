@@ -22,11 +22,12 @@
           text: "Creating delicate, openwork fabric by twisting and crossing threads.",
           status: "ENDANGERED",
           links: [
-            { url: "https://heritagecrafts.org.uk/craft/lace-making-bobbin-lace/",
+            { 
+              url: "https://heritagecrafts.org.uk/craft/lace-making-bobbin-lace/",
               label: "Learn more"
             }
           ],
-          image: "",
+          image: "https://assets.bloombergconnects.org/assets/9d9d1a085e20328a1456acc092c66f38cf08bc8ebf8cc3401956ba3b1ddd8ef44dc2691af7036e9d776a896ceca2d6969ffbd93e6c1ed9181ddc5c5ee9af08d3e5bbb939d2f3e52ad34912165054396cab2ebb7df1d282eee3a83d7bd2950da24c38f9508ae053da230c7a1d11acf11c56041b4c67675ac609895d7634eed97bc59457daa4357fefa13d532f9d6408a2.jpeg",
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="transparent"/>
@@ -42,6 +43,7 @@
           text: "The process of using simple, organic ingredients to convert raw skin into leather.",
           status: "CRITICALLY ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/tanning-oak-bark/", label: "Learn more" }],
+          image: "https://images.squarespace-cdn.com/content/v1/5e7497c486e66800e54a9929/4fa750a4-ae3c-46ff-83ed-0f9f4e8ea14e/JWB7.jpg",
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="transparent"/>
@@ -49,14 +51,17 @@
           `
         },
         {
-          x: 53, 
+          x: 51, 
           y: 69,
-          width: 0.1,
+          width: 0.12,
           height: 0.1,
           title: "Devon Stave Basket Making",
-          text: `The making of a traditional Devon assembled basket made of wooden splints fixed to a wooden base.`,
+          text: 
+            `The making of a traditional Devon assembled basket made of wooden 
+             splints fixed to a wooden base.`,
           status: "CRITICALLY ENDANGERED",
-          links: [{ url: "https://heritagecrafts.org.uk/craft/tanning-oak-bark/", label: "Learn more" }],
+          links: [{ url: "https://heritagecrafts.org.uk/craft/devon-stave-basket-making/", label: "Learn more" }],
+          image: "https://images.squarespace-cdn.com/content/v1/5e7497c486e66800e54a9929/8ed19851-0d4a-47cc-925e-be7cc818127c/DSC_9985.jpg",
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="transparent"/>
@@ -72,6 +77,7 @@
           text: "The making of traditional crab / lobster pots from willow, called withy pots.",
           status: "CRITICALLY ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/withy-pot-making/", label: "Learn more" }],
+          image: 'https://images.squarespace-cdn.com/content/v1/5e7497c486e66800e54a9929/7e1bd363-fe48-4ec4-884e-8225818ad6da/Screenshot+2025-08-21+1.59.49+PM.png',
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="transparent"/>
@@ -87,6 +93,7 @@
           text: "Decoration associated with traditional travelling fairgrounds.",
           status: "ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/fairground-art/", label: "Learn more" }],
+          image: "https://images.squarespace-cdn.com/content/v1/5e7497c486e66800e54a9929/7328aa15-edfc-4cf7-9c91-aa64c9a2efa1/Giffords+Circus.png",
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="transparent"/>
@@ -99,10 +106,12 @@
           width: 0.1,
           height: 0.1,
           title: "Cornish Hedging",
-          text: `The craft of constructing the traditional stone faced earth banks predominantly found within, and characteristic of, Cornwall. 
-          `,
+          text: 
+            `The craft of constructing the traditional stone faced earth banks 
+             predominantly found within, and characteristic of, Cornwall.`,
           status: "ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/cornish-hedging/", label: "Lean more" }],
+          image: "https://images.squarespace-cdn.com/content/v1/5e7497c486e66800e54a9929/c5aecff2-d412-4fa8-91bc-8aac621cdcb7/hedging1.png",
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="transparent"/>
@@ -115,10 +124,12 @@
           width: 0.1,
           height: 0.1,
           title: "Flax Processing",
-          text: `The growing and processing of flax to produce textiles, rope and everyday household materials. 
-          `,
+          text: 
+            `The growing and processing of flax to produce textiles, rope and 
+             everyday household materials.`,
           status: "ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/flax-hemp-and-nettle-bast-fibre-processing/", label: "Learn more" }],
+          image: "https://images.squarespace-cdn.com/content/v1/5e7497c486e66800e54a9929/4a3e8d24-dd95-4e5e-ae69-c7e18934de85/Green+fans.jpg",
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="transparent"/>
@@ -131,23 +142,25 @@
           width: 0.1,
           height: 0.1,
           title: "Wooden Boatbuilding",
-          text: `The craft of constructing boats from wood using traditional techniques. 
-          `,
+          text: `The craft of constructing boats from wood using traditional techniques.`,
           status: "ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/traditional-wooden-boat-building/", label: "Learn more" }],
+          image: "https://assets.bloombergconnects.org/assets/9d9d1a085e20328a1456acc092c66f38cf08bc8ebf8cc3401956ba3b1ddd8ef44dc2691af7036e9d776a896ceca2d6969ffbd93e6c1ed9181ddc5c5ee9af08d3e5bbb939d2f3e52ad34912165054396c2a142ec4a6384a570785d79a9f1190cae1c63957d95c8608046b6204cb501c1442e6792d95d379ff9c243bfd3e28a03e0ab5b456cf7d02c863ec7e8321b01232.jpeg",
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="transparent"/>
             </svg>
           `
         },
-         {
-          x: 78.4, 
-          y: 38.4,
-          width: 0.1,
-          height: 0.1,
+        {
+          x: 82, y: 38.4,
+          width: 0.15, height: 0.1,
           title: "Reverse Glass Sign Painting and Brilliant Glass Cutting",
-          text: `The making of signs by painting and applying metal leaf to the reverse of glass panels. Brilliant cutting is cutting a pattern into flat glass with a rotating stone wheel, the cuts are then smoothed with polishing powders using a felt wheel.`,
+          text: 
+            `The making of signs by painting and applying metal leaf to the 
+             reverse of glass panels. Brilliant cutting is cutting a pattern 
+             into flat glass with a rotating stone wheel, the cuts are then 
+             smoothed with polishing powders using a felt wheel.`,
           status: "ENDANGERED",
           links: [
             { 
@@ -159,6 +172,7 @@
               label: "Learn more about Reverse Glass Sign Painting."
             },
           ],
+          image: "https://images.squarespace-cdn.com/content/v1/5e7497c486e66800e54a9929/6f0fc4de-8aa9-44f3-9832-2dd4e3253138/aaron+S.jpg",
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="transparent"/>
@@ -174,6 +188,7 @@
           text: `The construction of wooden wheels, often used for coachbuilding.`,
           status: "ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/wheelwrighting/", label: "Learn more" }],
+          image: "https://images.squarespace-cdn.com/content/v1/5e7497c486e66800e54a9929/1bd094dc-18b0-4217-a357-932a1f0c5967/DSC_0256.jpg",
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="transparent"/>
@@ -185,9 +200,12 @@
           width: 0.1,
           height: 0.15,
           title: "Sailmaking",
-          text: `A traditional maritime craft that involves designing and constructing the sails that power sailing vessels.`,
+          text: 
+            `A traditional maritime craft that involves designing and 
+             constructing the sails that power sailing vessels.`,
           status: "ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/sail-making/", label: "Learn more" }],
+          image: "https://images.squarespace-cdn.com/content/v1/5e7497c486e66800e54a9929/52e5135b-0c63-4578-a748-9fd0ed5a50a2/IMG_0176.JPEG",
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="transparent"/>
@@ -202,6 +220,7 @@
           text: `The weaving of silk ribbons.`,
           status: "CRITICALLY ENDANGERED",
           links: [{ url: "https://heritagecrafts.org.uk/craft/silk-ribbon-making/", label: "Learn more" }],
+          image: "https://images.squarespace-cdn.com/content/v1/5e7497c486e66800e54a9929/7fb7d043-caed-46b5-9751-758f07039462/DSC_9926.jpg",
           svg: `
             <svg viewBox="0 0 50 50" >
               <circle cx="25" cy="25" r="25" fill="transparent"/>
@@ -446,7 +465,8 @@
       boxShadow: "-2px 0 10px rgba(0,0,0,0.2)",
       padding: "24px",
       zIndex: 99999,
-      overflowY: "auto"
+      overflowY: "auto",
+      boxSizing: "border-box",
     });
 
     let linksHtml = '';
