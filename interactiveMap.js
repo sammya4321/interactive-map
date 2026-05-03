@@ -322,8 +322,7 @@
   }
 
   function createLens(config) {
-    if (lensEl) return lensEl;
-
+    if (lensEl && document.body.contains(lensEl)) return lensEl;
     lensEl = document.createElement('div');
     lensEl.className = 'map-lens';
 
@@ -542,8 +541,17 @@
 
   document.addEventListener("DOMContentLoaded", initAllMaps);
 
+  let scheduled = false;
+
   const observer = new MutationObserver(() => {
-    initAllMaps();
+    if (scheduled) return;
+
+    scheduled = true;
+
+    requestAnimationFrame(() => {
+      initAllMaps();
+      scheduled = false;
+    });
   });
 
   observer.observe(document.body, {
