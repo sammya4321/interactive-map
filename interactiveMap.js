@@ -7,10 +7,16 @@
 
   const MAPS = [
     {
-      selector: '.interactive-map', // CSS selector of the image block
-      statusColours: {
-        'ENDANGERED': '#ff7b00',
-        'CRITICALLY ENDANGERED': '#ff0000',
+      mapConfig: {
+        selector: '.interactive-map', // CSS selector of the image block
+        statusColours: {
+          'ENDANGERED': '#ff7b00',
+          'CRITICALLY ENDANGERED': '#ff0000',
+        },
+        lensZoom: 2,
+        lensSize: 160,
+        lensStrokeWidth: 3,
+        parallaxFactor: 1,
       },
       points: [
         {
@@ -238,9 +244,9 @@
   let lensEl = null;
 
   function initAllMaps() {
-    MAPS.forEach(mapConfig => {
-      document.querySelectorAll(mapConfig.selector).forEach(container => {
-        initMap(container, mapConfig);
+    MAPS.forEach(map => {
+      document.querySelectorAll(map.mapConfig.selector).forEach(container => {
+        initMap(container, map);
       });
     });
   }
@@ -315,16 +321,18 @@
     updateOverlayBounds();
   }
 
-  function createLens() {
+  function createLens(config) {
     if (lensEl) return lensEl;
 
     lensEl = document.createElement('div');
     lensEl.className = 'map-lens';
 
+    const lensSize = config.mapConfig.lensSize || 160;
+
     Object.assign(lensEl.style, {
       position: 'fixed',
-      width: '160px',
-      height: '160px',
+      width: `${lensSize}px`,
+      height: `${lensSize}px`,
       borderRadius: '50%',
       pointerEvents: 'none',
       backgroundRepeat: 'no-repeat',
@@ -338,9 +346,8 @@
     return lensEl;
   }
 
-  function getStatusColour(point) {
-    const mapConfig = MAPS[0]; // assuming single map config
-    return mapConfig.statusColours[point.status] || '#000';
+  function getStatusColour(point, config) {
+    return config.mapConfig.statusColours[point.status] || '#000';
   }
 
   function createPoint(overlay, point, config) {
@@ -385,31 +392,29 @@
     let activeHover = null;
     button.addEventListener('click', () => openPanel(point));
     button.addEventListener('mouseenter', () => {
-      const lens = createLens();
+      const lens = createLens(config);
       const img = overlay.parentNode.querySelector('img');
       const rect = img.getBoundingClientRect();
 
-      const zoom = 2;
+      const zoom = config.mapConfig.lensZoom || 2;
+      const strokeWidth = config.mapConfig.lensStrokeWidth || 3;
 
-      const colour = getStatusColour(point);
+      const colour = getStatusColour(point, config);
 
       lens.style.backgroundImage = `url(${img.src})`;
       lens.style.backgroundSize = `${rect.width * zoom}px ${rect.height * zoom}px`;
-      lens.style.border = `3px solid ${colour}`;
+      lens.style.border = `${strokeWidth}px solid ${colour}`;
 
       lens.style.opacity = '1';
       lens.style.transform = 'translate(-50%, -50%) scale(1)';
 
-      activeHover = { img, rect, zoom };
+      activeHover = { img, rect, zoom, factor: config.mapConfig.parallaxFactor || 1 };
     });
     button.addEventListener('mousemove', (e) => {
       if (!activeHover) return;
 
-      const { rect, zoom } = activeHover;
+      const { rect, zoom, factor } = activeHover;
 
-      // const x = e.clientX - rect.left;
-      // const y = e.clientY - rect.top;
-      const factor = 1; // 0 = no movement, 1 = full follow
       const centerX = (point.x / 100) * rect.width;
       const centerY = (point.y / 100) * rect.height;
 
@@ -424,8 +429,9 @@
       lensEl.style.left = rect.left + clampedX + 'px';
       lensEl.style.top = rect.top + clampedY + 'px';
       // Move zoomed background
+      const lensSize = config.mapConfig.lensSize || 160;
       lensEl.style.backgroundPosition =
-        `-${clampedX * zoom - 80}px -${clampedY * zoom - 80}px`;
+        `-${clampedX * zoom - lensSize / 2}px -${clampedY * zoom - lensSize / 2}px`;
     });
     button.addEventListener('mouseleave', () => {
       activeHover = null;
