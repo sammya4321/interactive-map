@@ -13,41 +13,57 @@ clicked opens a sidebar with some additional content.
     `interactive-map`
 
 3. In the `interactiveMap.js` file, under `CONFIGURATION`, there is a `MAPS`
-   object with an array of `points`. Update the fields for each point and add
-   any new points required. A point should look like this:
+   object with an array of maps. Each map has a `mapConfig` object and a `points` array. Update the fields for each point and add
+   any new points required. A map should look like this:
 
     ```
     {
-        /* the x and y coordinates of the icon on the map, (0,0) is at the top
-         * left of the screen */
-        x: 40,
-        y: 60,
-        
-        /* the title to display in the side panel */
-        title: "Location A",
-        
-        /* text to display in the side panel */
-        text: "Description for Location A.",
-        
-        /* A link in the side panel and the text it should display as */
-        links: [
-            { url: "https://example.com", label: "Learn More" },
-            { url: "https://another.com", label: "Another Link" }
-        ],
-        
-        /* url of the image to display in the side panel (upload file to 
-         * squarespace and find the url) */
-        image: "",
-        
-        /* the icon size. Use:
-         *   - a number > 1 for pixels,
-         *   - a ratio between 0 and 1 for relative size to the rendered map image,
-         *   - or a string like '6%' for a percentage of the image size.
-         */
-        width: 0.06,
-        height: 0.06,
-        
-        /* The svg code to display as an icon on the map */
+      mapConfig: {
+        selector: '.interactive-map', // CSS selector of the image block
+        statusColours: {
+          'ENDANGERED': '#ff7b00',
+          'CRITICALLY ENDANGERED': '#ff0000',
+        },
+        lensZoom: 2, // Magnification level for the lens
+        lensSize: 160, // Diameter of the lens in pixels
+        lensStrokeWidth: 3, // Border thickness of the lens
+        parallaxFactor: 1, // How much the lens follows the mouse (0-1)
+      },
+      points: [
+        {
+            /* the x and y coordinates of the icon on the map, (0,0) is at the top
+             * left of the screen */
+            x: 40,
+            y: 60,
+            
+            /* the title to display in the side panel */
+            title: "Location A",
+            
+            /* text to display in the side panel */
+            text: "Description for Location A.",
+            
+            /* status for coloring the lens border */
+            status: "ENDANGERED",
+            
+            /* A link in the side panel and the text it should display as */
+            links: [
+                { url: "https://example.com", label: "Learn More" },
+                { url: "https://another.com", label: "Another Link" }
+            ],
+            
+            /* url of the image to display in the side panel (upload file to 
+             * squarespace and find the url) */
+            image: "",
+            
+            /* the icon size. Use:
+             *   - a number > 1 for pixels,
+             *   - a ratio between 0 and 1 for relative size to the rendered map image,
+             *   - or a string like '6%' for a percentage of the image size.
+             */
+            width: 0.06,
+            height: 0.06,
+            
+            /* The svg code to display as an icon on the map */
         svg: `
             <svg viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="8" fill="#e63946"/>
